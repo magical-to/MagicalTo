@@ -8,6 +8,7 @@ import HomeScreen from './screens/HomeScreen';
 import TagsScreen from './screens/TagsScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SearchScreen from './screens/SearchScreen';
+import Icon from '@react-native-vector-icons/fontawesome5';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,12 +20,42 @@ function App() {
   });
   return (
   <NavigationContainer>
-    <Tab.Navigator>
-      <Tab.Screen name="Exchanges" component={ExchangeScreen} />
-      <Tab.Screen name="Tags" component={TagsScreen} />
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Search" component={SearchScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+    <Tab.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
+      <Tab.Screen 
+        name="Exchanges" 
+        component={ExchangeScreen} 
+        options={{
+          tabBarIcon: ({focused}) => {
+        return (
+          <Icon name="exchange-alt" iconStyle="solid" color={focused ? '#1263CE' : '#a0a0a0a0'}
+          size={16}
+          />
+        );
+      },
+      }}
+      />
+      <Tab.Screen name="Tags" component={TagsScreen} options={{tabBarIcon: ({focused}) => { 
+        return (
+          <Icon name="tags" iconStyle="solid" color={focused ? '#1263CE' : '#a0a0a0a0'} size={16}/>
+        )
+      }}} />
+      <Tab.Screen name="Home" component={HomeScreen} options={{tabBarIcon: ({focused}) => {
+        return (
+          <Icon name="home" iconStyle="solid" color={focused ? '#1263CE' : '#a0a0a0a0'} size={16}/>
+        )
+      }}} />
+      <Tab.Screen name="Search" component={SearchScreen} options={{tabBarIcon: ({focused}) => {
+        return (
+          <Icon name="search" iconStyle="solid" color={focused ? '#1263CE' : '#a0a0a0a0'} size={16}/>
+        )
+      }}}
+          />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{tabBarIcon: ({focused}) => {
+        return (
+          <Icon name="user" iconStyle="solid" color={focused ? '#1263CE' : '#a0a0a0a0'} size={16}/>
+        )
+      }}}
+          />
     </Tab.Navigator>
   </NavigationContainer>
   );
