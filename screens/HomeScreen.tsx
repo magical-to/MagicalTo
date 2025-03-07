@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import Coin from '../components/Coin';
 
 const HomeScreen = () => {
     const [coinlistData, setCoinlistData] = useState([]);
@@ -27,7 +28,7 @@ const HomeScreen = () => {
             {coinlistData.map(l => {
                 return (
                 <View key={l.rank}>
-                    <Text>{l.rank}</Text>
+                    <Coin id={l.id}/>
                 </View>
                 );
             })}
