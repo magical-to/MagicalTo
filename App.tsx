@@ -9,6 +9,7 @@ import TagsScreen from './screens/TagsScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SearchScreen from './screens/SearchScreen';
 import Icon from '@react-native-vector-icons/fontawesome5';
+import HomeStack from './components/HomeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,7 +40,7 @@ function App() {
           <Icon name="tags" iconStyle="solid" color={focused ? '#1263CE' : '#a0a0a0a0'} size={16}/>
         )
       }}} />
-      <Tab.Screen name="Home" component={HomeScreen} options={{tabBarIcon: ({focused}) => {
+      <Tab.Screen name="Home" component={HomeStack} options={{tabBarIcon: ({focused}) => {
         return (
           <Icon name="home" iconStyle="solid" color={focused ? '#1263CE' : '#a0a0a0a0'} size={16}/>
         )

@@ -19,16 +19,25 @@ const HomeScreen = () => {
         }, []);
     return (
         <ScrollView contentContainerStyle={{paddingBottom: "25%"}}>
+            <View style={{flexDirection: "row", height: "1%"}}>
         <Image 
-        source={require("../android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png")}
-        style={{width: "20%", height: "5%"}}
+            source={require("../android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png")}
+            style={{width: "20%", height: "100%"}}
         />
+        <Text style={{textAlignVertical: 'center', fontSize: 20, color: "black", fontWeight: '500'}}>Coin Top 100</Text>
+        </View>
         {coinlistData ?
         <View>
             {coinlistData.map(l => {
                 return (
                 <View key={l.rank}>
-                    <Coin id={l.id}/>
+                    <Coin 
+                    id={l.id}
+                    name = {l.name}
+                    rank = {l.rank}
+                    symbol = {l.symbol}
+                    isNew={l.isNew}
+                    />
                 </View>
                 );
             })}
